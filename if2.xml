@@ -25,7 +25,20 @@
           </block>
         </value>
         <statement name="DO0">
-          <block type="movement_right" id="69"></block>
+          <block type="movement_stutter" id="115">
+            <next>
+              <block type="robot_delay" id="117" inline="true">
+                <value name="DELAY">
+                  <block type="math_number" id="124">
+                    <field name="NUM">500</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="movement_right" id="69"></block>
+                </next>
+              </block>
+            </next>
+          </block>
         </statement>
         <statement name="ELSE">
           <block type="movement_forward" id="52"></block>
