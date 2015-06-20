@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="controls_whileUntil" id="28" inline="false" x="129" y="105">
+  <block type="controls_whileUntil" id="28" inline="false" x="154" y="108">
     <field name="MODE">UNTIL</field>
     <value name="NUMBER">
       <block type="sensor_button" id="21">
@@ -52,10 +52,45 @@
         <next>
           <block type="robot_delay" id="71" inline="true">
             <value name="DELAY">
-              <block type="math_number" id="95">
-                <field name="NUM">200</field>
+              <block type="sensor_object" id="153">
+                <field name="OBJECT">RIGHTFRONT</field>
               </block>
             </value>
+            <next>
+              <block type="controls_if" id="151" inline="false">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="math_number" id="95">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="led_select" id="155" inline="true">
+                    <field name="ACTION">FLASH</field>
+                    <value name="LED">
+                      <block type="math_number" id="156">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="robot_delay" id="157" inline="true">
+                        <value name="DELAY">
+                          <block type="math_number" id="158">
+                            <field name="NUM">200</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="movement_left" id="170"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="movement_forward" id="160"></block>
+                </statement>
+              </block>
+            </next>
           </block>
         </next>
       </block>
@@ -63,5 +98,13 @@
     <next>
       <block type="movement_stop" id="105"></block>
     </next>
+  </block>
+  <block type="logic_compare" id="152" inline="true" x="262" y="404">
+    <field name="OP">LT</field>
+    <value name="B">
+      <block type="math_number" id="154">
+        <field name="NUM">50</field>
+      </block>
+    </value>
   </block>
 </xml>
