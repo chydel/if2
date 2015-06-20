@@ -8,7 +8,7 @@
     </value>
     <statement name="DO">
       <block type="controls_if" id="7" inline="false">
-        <mutation else="1"></mutation>
+        <mutation elseif="1" else="1"></mutation>
         <value name="IF0">
           <block type="logic_compare" id="35" inline="true">
             <field name="OP">LT</field>
@@ -46,6 +46,33 @@
             </next>
           </block>
         </statement>
+        <value name="IF1">
+          <block type="sensor_object" id="153">
+            <field name="OBJECT">RIGHTFRONT</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="led_select" id="155" inline="true">
+            <field name="ACTION">FLASH</field>
+            <value name="LED">
+              <block type="math_number" id="156">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <next>
+              <block type="robot_delay" id="157" inline="true">
+                <value name="DELAY">
+                  <block type="math_number" id="158">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="movement_left" id="170"></block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
         <statement name="ELSE">
           <block type="movement_forward" id="52"></block>
         </statement>
@@ -56,51 +83,6 @@
                 <field name="NUM">200</field>
               </block>
             </value>
-            <next>
-              <block type="controls_if" id="151" inline="false">
-                <mutation else="1"></mutation>
-                <value name="IF0">
-                  <block type="logic_compare" id="152" inline="true">
-                    <field name="OP">LT</field>
-                    <value name="A">
-                      <block type="sensor_object" id="153">
-                        <field name="OBJECT">RIGHTFRONT</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="math_number" id="154">
-                        <field name="NUM">75</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <statement name="DO0">
-                  <block type="led_select" id="155" inline="true">
-                    <field name="ACTION">FLASH</field>
-                    <value name="LED">
-                      <block type="math_number" id="156">
-                        <field name="NUM">5</field>
-                      </block>
-                    </value>
-                    <next>
-                      <block type="robot_delay" id="157" inline="true">
-                        <value name="DELAY">
-                          <block type="math_number" id="158">
-                            <field name="NUM">200</field>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="movement_left" id="170"></block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </statement>
-                <statement name="ELSE">
-                  <block type="movement_forward" id="160"></block>
-                </statement>
-              </block>
-            </next>
           </block>
         </next>
       </block>
